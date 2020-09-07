@@ -4,6 +4,8 @@ You can use the [editor on GitHub](https://github.com/JaccoGoris/hovering-stars/
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
+<iframe src="https://github.com/JaccoGoris/hovering-stars/blob/main/dist/index.html" width="800" height="800"/>
+
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
@@ -12,7 +14,9 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 Syntax highlighted code block
 
 # Header 1
+
 ## Header 2
+
 ### Header 3
 
 - Bulleted
