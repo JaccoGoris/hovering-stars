@@ -7,7 +7,7 @@ import {
   Group,
   Mesh,
   Vector3,
-  Vector2,
+  Vector2
 } from 'three'
 
 // Setup Scene
@@ -38,10 +38,11 @@ const createSphere = (pos) => {
 }
 
 const dots = []
+const fieldSize = 80
 
-for (let i = 0; i < 60; i++) {
-  const x = (Math.random() - 0.5) * 60
-  const z = (Math.random() - 0.5) * 60
+for (let i = 0; i < 80; i++) {
+  const x = (Math.random() - 0.5) * fieldSize
+  const z = (Math.random() - 0.5) * fieldSize
 
   let sp = createSphere(new Vector3(x, 0, z))
   dots.push({ mesh: sp, index: i, viewPos: new Vector2(0, 0) })
@@ -91,7 +92,10 @@ const animate = function () {
 
   dots.forEach((dot) => {
     dot.viewPos = get2Dfor3D(dot.mesh, camera, width, height)
-    if (Math.abs(mousePos.x - dot.viewPos.x) < 10) {
+    if (
+      Math.abs(mousePos.x - dot.viewPos.x) < 10 &&
+      Math.abs(mousePos.y - dot.viewPos.y) < 10
+    ) {
       dot.mesh.scale.set(3, 3, 3)
     } else {
       dot.mesh.scale.set(1, 1, 1)
