@@ -88,19 +88,20 @@ controls.target.set(0, 0, 0)
 controls.update()
 
 const update = (dt: number, shouldUpdate: boolean) => {
-  if (shouldUpdate) {
-    dots.forEach((dot) => {
-      dot.viewPos = get2Dfor3D(dot.mesh, camera, width, height)
-      if (
-        Math.abs(mousePos.x - dot.viewPos.x) < 10 &&
-        Math.abs(mousePos.y - dot.viewPos.y) < 10
-      ) {
-        dot.mesh.scale.set(3, 3, 3)
-      } else {
-        dot.mesh.scale.set(1, 1, 1)
-      }
-    })
+  dots.forEach((dot) => {
+    dot.viewPos = get2Dfor3D(dot.mesh, camera, width, height)
+    if (
+      Math.abs(mousePos.x - dot.viewPos.x) < 10 &&
+      Math.abs(mousePos.y - dot.viewPos.y) < 10
+    ) {
+      dot.mesh.scale.set(3, 3, 3)
+      renderloop.kick()
+    } else {
+      dot.mesh.scale.set(1, 1, 1)
+    }
+  })
 
+  if (shouldUpdate) {
     renderer.render(scene, camera)
     controls.update()
   }
